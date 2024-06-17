@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+import sys
 from pathlib import Path
 
 def main():
@@ -9,12 +10,12 @@ def main():
     Outputs file containing these averages titled 'averages.csv' (file_name) in the same director holding original simulation output.
 
     Requires: 
-        - the number of runs (run_no)
+        - the number of runs (run_no), input when running from the terminal
         - the same file containing all parameter values used for the simulations (coord_file)
         - directory containing simulation output (data_folder). 
           simulation output files should follow the format 'results_#.csv'
     """
-    run_no = 50
+    run_no = int(sys.argv[1])
 
     coord_file = Path("coords.csv")
     data_folder = Path("data/")
