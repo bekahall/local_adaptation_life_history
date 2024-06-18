@@ -1,17 +1,22 @@
 # Local Adaptation of Life History Model
-This repo contains the code used to perform the simulations presented in the manuscript. 
 
-The model implements a Gillespie algorithm to simulate stochastic evolution of a haploid, biallelic population with alleles $A$ and $a$, on an island undergoing seasonal population crashes, with constant migration of $a$ allele individuals from a mainland. A complete description of the model can be found in the manuscript. 
+## Mathematica Notebooks
 
-## Requirements
+The notebook `analysis.nb` contains all the methods used to perform the analysis of the deterministic island-mainland model of local adaptation. The notebook `plots.nb` is used to generate all the figures in the manuscript, using the output from `analysis.nb` and the Python simulation code described below.
 
-This code requires the following packages:
+## Python Code
+
+This repo contains the code used to perform the simulations presented in the manuscript. The model implements a Gillespie algorithm to simulate stochastic evolution of a haploid, biallelic population with alleles $A$ and $a$, on an island undergoing seasonal population crashes, with constant migration of $a$ allele individuals from a mainland. A complete description of the model can be found in the manuscript. 
+
+### Requirements
+
+The Python code requires the following packages:
 
     matplotlib
     pandas
     numpy
 
-## Usage
+### Usage
 
 A single simulation across all parameter values given in `coords.csv` can be perfomed by running the file `main.py` from the terminal:
 
@@ -28,3 +33,13 @@ To combine the results from multiple simulation runs, the file `calculate_averag
     combine_average.py run_no
 
 With the input `run_no` setting the total number of simulation runs that are being combined. 
+
+## CSV Files
+
+`coords.csv` contains all the parameter pairs for $d$ and $\delta$ used to perform the stochastic simulations.
+
+`coarse_coords.csv` contains all the parameter pairs for $d$ and $\delta$ used for the Floquet analysis.
+
+`fine_coords.csv` contains all the parameter pairs for $d$ and $\delta$ used for calculating the local vs. foreign measure of local adaptation and the strength of genetic drift from the deterministic model.
+
+`stoch_data.csv` contains the average gene frequencies and population sizes from the 50 simulation runs, used to create Figure 3 in the manuscript.
